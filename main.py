@@ -4,7 +4,7 @@
 ################################################
 
 import math
-
+from random import randint
 
 # Funções
 
@@ -91,9 +91,63 @@ print('Olá Mundo!')
 #-------------------------#
 # Exercicio 8
 
-print("Este programa calcula a distancia em quilometros de um raio")
+# print("Este programa calcula a distancia em quilometros de um raio")
 
-raio = float(entrada("Em quantos segundos ouviu o raio?"))
-distancia = 340 * raio
+# raio = float(entrada("Em quantos segundos ouviu o raio?"))
+# distancia = 340 * raio
 
-print("A distancia é: ", distancia/1000, " quilometros")
+# print("A distancia é: ", distancia/1000, " quilometros")
+
+
+#-------------------------#
+# Exercicio 9
+
+# def cont_par(ini, fim):
+#   num = ini
+#   cp = 0
+#   while num <= fim:
+#     if num % 2 == 0:
+#       cp += 1
+#     num += 1
+#   return cp
+
+# print(cont_par(1, 5268))
+
+
+#-------------------------#
+# Exercicio 10
+
+# num = input('digite um numero até 10: ')
+# soma = 0
+# sor = randint(1, 10)
+# print(sor)
+# while int(num) != sor:
+#   soma += sor
+#   sor = randint(1, 10)
+#   print(sor)
+
+# print('soma:', soma)
+
+
+#-------------------------#
+# Exercicio 11
+
+# x = input('digite um numero: ')
+# y = input('digite um numero: ')
+
+# for xLoc in range(int(x)):
+#   for yLoc in range(int(y)):
+#     print(xLoc, yLoc)
+
+
+#-------------------------#
+# Exercicio 12
+
+numero = input('digite um numero: ')
+
+def divisores(num):
+  for i in range(1, num//2+1):
+    if num % i == 0:
+      print(i, 'é divisor de', num)
+
+divisores(int(numero))
