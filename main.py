@@ -8,6 +8,7 @@ from random import randint
 
 # Funções
 
+
 def entrada(texto):
   r = input('>' + texto)
   return r
@@ -34,7 +35,6 @@ print('Olá Mundo!')
 # nome = entrada('Digite um nome: ')
 # print(nome)
 
-
 #-------------------------#
 # Exercicio 4
 
@@ -49,7 +49,6 @@ print('Olá Mundo!')
 
 # print("x =", x, "y =", y, "z =", z)
 
-
 #-------------------------#
 # Exercicio 5
 
@@ -62,7 +61,6 @@ print('Olá Mundo!')
 # Nacionalidade = entrada('Digite sua nacinalidade: ')
 
 # print("Olá! Meu nome é ", Nome, "tenho ", Idade, "anos. Sou do ", Nacionalidade, " e possuo ", Altura, "de altura e ", Peso, "Kg.")
-
 
 #-------------------------#
 # Exercicio 6
@@ -87,7 +85,6 @@ print('Olá Mundo!')
 
 # print("A distancia entre os pontos é: ", distancia)
 
-
 #-------------------------#
 # Exercicio 8
 
@@ -97,7 +94,6 @@ print('Olá Mundo!')
 # distancia = 340 * raio
 
 # print("A distancia é: ", distancia/1000, " quilometros")
-
 
 #-------------------------#
 # Exercicio 9
@@ -113,7 +109,6 @@ print('Olá Mundo!')
 
 # print(cont_par(1, 5268))
 
-
 #-------------------------#
 # Exercicio 10
 
@@ -128,7 +123,6 @@ print('Olá Mundo!')
 
 # print('soma:', soma)
 
-
 #-------------------------#
 # Exercicio 11
 
@@ -139,15 +133,17 @@ print('Olá Mundo!')
 #   for yLoc in range(int(y)):
 #     print(xLoc, yLoc)
 
-
 #-------------------------#
 # Exercicio 12
 
-numero = input('digite um numero: ')
+# numero = input('digite um numero: ')
 
-def divisores(num):
-  for i in range(1, num//2+1):
-    if num % i == 0:
-      print(i, 'é divisor de', num)
+# def divisores(num):
+#   for i in range(1, num//2+1):
+#     if num % i == 0:
+#       print(i, 'é divisor de', num)
 
-divisores(int(numero))
+# divisores(int(numero))
+
+#-------------------------#
+# Exercicio 13
