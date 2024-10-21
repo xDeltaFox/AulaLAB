@@ -149,21 +149,37 @@ print('Olá Mundo!')
 # Exercicio 13
 
 inventario = [
-  [0, 6],
-  [1, 20],
-  [2, 33],
-  [3, 1],
-  [4, 755],
-  [5, 84],
+    [0, 6],
+    [1, 20],
+    [2, 33],
+    [3, 1],
+    [4, 755],
+    [5, 84],
 ]
+
 
 def _removeItem(id):
   inventario.pop(id)
 
+
 def _addItem(id, qtd):
   inventario.append([id, qtd])
+
 
 def _getItem(id):
   return inventario[id]
 
 
+print(inventario)
+_removeItem(3)
+print(inventario)
+
+#-------------------------#
+# Exercicio 14
+
+lista = []
+for i in range(32546):
+  if i % 2 == 0:
+    lista.append(i)
+lista.sort(reverse=True)
+print(lista)
