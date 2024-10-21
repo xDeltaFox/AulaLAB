@@ -147,3 +147,23 @@ print('Olá Mundo!')
 
 #-------------------------#
 # Exercicio 13
+
+inventario = [
+  [0, 6],
+  [1, 20],
+  [2, 33],
+  [3, 1],
+  [4, 755],
+  [5, 84],
+]
+
+def _removeItem(id):
+  inventario.pop(id)
+
+def _addItem(id, qtd):
+  inventario.append([id, qtd])
+
+def _getItem(id):
+  return inventario[id]
+
+
