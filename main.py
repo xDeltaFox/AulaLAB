@@ -4,7 +4,7 @@
 ################################################
 
 import math
-from random import randint
+from random import randint, random
 
 # Funções
 
@@ -170,16 +170,46 @@ def _getItem(id):
   return inventario[id]
 
 
-print(inventario)
-_removeItem(3)
-print(inventario)
+# print(inventario)
+# _removeItem(3)
+# print(inventario)
 
 #-------------------------#
 # Exercicio 14
 
-lista = []
-for i in range(32546):
-  if i % 2 == 0:
-    lista.append(i)
-lista.sort(reverse=True)
-print(lista)
+# lista = []
+# for i in range(32546):
+#   if i % 2 == 0:
+#     lista.append(i)
+# lista.sort(reverse=True)
+# print(lista)
+
+#-------------------------#
+# Exercicio 15
+
+# x1 = 9
+# x2 = 35
+# y1 = 10
+# y2 = 51
+# z1 = 82
+# z2 = 24
+
+# x = x2 + x1
+# y = y2 + y1
+# z = z2 + z1
+
+# print("x:", x1, "+", x2)
+# print(x)
+# print("y:", y1, "+", y2)
+# print(y)
+# print("z:", z1, "+", z2)
+# print(z)
+
+#-------------------------#
+# Exercicio 16
+
+# lista = []
+# for i in range(10):
+#   lista.append(math.floor(random() * 20 + i))
+
+# print(lista)
