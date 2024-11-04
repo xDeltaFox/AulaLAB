@@ -14,6 +14,44 @@ def entrada(texto):
   return r
 
 
+def bubble_sort(vet):
+  c = 0
+  n = len(vet)
+  for i in range(n - 1):
+    for j in range(n - i - 1):
+      if vet[j] > vet[j + 1]:
+        c += 1
+        vet[j], vet[j + 1] = vet[j + 1], vet[j]
+  return c
+
+
+def insertion_sort(vet):
+  c = 0
+  n = len(vet)
+  for i in range(1, n):
+    key = vet[i]
+    j = i - 1
+    while j >= 0 and key < vet[j]:
+      c += 1
+      vet[j + 1] = vet[j]
+      j -= 1
+    vet[j + 1] = key
+  return c
+
+
+def selection_sort(vet):
+  c = 0
+  n = len(vet)
+  for i in range(n):
+    min_idx = i
+    for j in range(i + 1, n):
+      if vet[j] < vet[min_idx]:
+        c += 1
+        min_idx = j
+    vet[i], vet[min_idx] = vet[min_idx], vet[i]
+  return c
+
+
 #################
 #### VETORES ####
 #################
@@ -54,7 +92,7 @@ def entrada(texto):
 # print(lista)
 
 #-------------------------#
-# Exercicio 15
+# Exercicio 15 VETORES 1
 
 # x1 = 9
 # x2 = 35
@@ -75,7 +113,7 @@ def entrada(texto):
 # print(z)
 
 #-------------------------#
-# Exercicio 16
+# Exercicio 16 VETORES 2
 
 # lista = []
 # for i in range(10):
@@ -94,7 +132,7 @@ def entrada(texto):
 # print(c)
 
 #-------------------------#
-# Exercicio 17
+# Exercicio 17 VETORES 3
 
 # lista = []
 # for i in range(5):
@@ -110,7 +148,7 @@ def entrada(texto):
 # print(lista)
 
 #-------------------------#
-# Exercicio 18
+# Exercicio 18 VETORES 4
 
 # lista = []
 # for i in range(50):
@@ -124,3 +162,68 @@ def entrada(texto):
 # print(lista)
 # print(c)
 # print(c * 100 / 50, "%")
+
+#-------------------------#
+# Exercicio 19 VETORES 5
+
+# vet = []
+# pos = []
+# semdup = []
+
+# for i in range(20):
+#   n = random() * i
+#   if random() > .5:
+#     n = -n
+
+#   vet.append(math.floor(n))
+
+# for i in vet:
+#   if i > 0:
+#     pos.append(i)
+
+# for i in pos:
+#   if i not in semdup:
+#     semdup.append(i)
+
+# print(vet)
+# print(pos)
+# print(semdup)
+
+#-------------------------#
+# Exercicio 20 VETORES 6
+
+print("insertion")
+
+pos = []
+
+for i in range(10):
+  pos.append(math.floor(random() * i))
+
+print(pos)
+nu = insertion_sort(pos)
+print(pos)
+print(nu)
+
+print("selection")
+
+pos = []
+
+for i in range(10):
+  pos.append(math.floor(random() * i))
+
+print(pos)
+nu = selection_sort(pos)
+print(pos)
+print(nu)
+
+print("bubble")
+
+pos = []
+
+for i in range(10):
+  pos.append(math.floor(random() * i))
+
+print(pos)
+nu = bubble_sort(pos)
+print(pos)
+print(nu)

@@ -144,4 +144,3 @@ print('Olá Mundo!')
 #       print(i, 'é divisor de', num)
 
 # divisores(int(numero))
-
