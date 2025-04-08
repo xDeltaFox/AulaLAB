@@ -16,11 +16,22 @@ int mdc(int num1, int num2) {
 }
 
 int ePalin(int n) {
-    for (int i = 0; i < 2; i++)
-    {
-        /* code */
-    }
+    int pot = 1;
+    while (pot < n)
+        pot *= 10;
     
+    if(pot > n) pot /= 10;
+
+    while (1)
+    {
+        int tamanho = n/pot, utamanho = n%10;
+        if(tamanho != utamanho) return 0;
+
+        n = n - tamanho * pot - n % 10;
+        pot /= 10;
+
+        if(pot<10) return 1;
+    }
 }
 
 int main() {
