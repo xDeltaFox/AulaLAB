@@ -1,3 +1,0 @@
-/home/aluno/CLionProjects/DeltaC/cmake-build-debug/CMakeFiles/DeltaC.dir
-/home/aluno/CLionProjects/DeltaC/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/aluno/CLionProjects/DeltaC/cmake-build-debug/CMakeFiles/rebuild_cache.dir

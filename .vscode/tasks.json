@@ -1,0 +1,36 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C build",
+            "command": "/usr/bin/gcc",
+            "options": {
+                "cwd": "${workspaceFolder}/C"
+            },
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/C/main.c",
+                "${workspaceFolder}/C/carry.h",
+                "${workspaceFolder}/C/carry.c",
+                "${workspaceFolder}/C/game_life.h",
+                "${workspaceFolder}/C/game_life.c",
+                "${workspaceFolder}/C/math.h",
+                "${workspaceFolder}/C/math.c",
+                "${workspaceFolder}/C/DeltaC/console.h",
+                "${workspaceFolder}/C/DeltaC/console.c",
+                "-o",
+                "${workspaceFolder}/C/build/main"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Tarefa gerada pelo Depurador."
+        }
+    ],
+    "version": "2.0.0"
+}
