@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include "./lista.h"
+#include "./DeltaC_lista.h"
 
 bool DeltaC_add(int item, LISTA *p)
 {

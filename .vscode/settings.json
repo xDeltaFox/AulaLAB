@@ -2,6 +2,9 @@
     "files.associations": {
         "string.h": "c",
         "stdio.h": "c",
-        "lista01.h": "c"
+        "lista01.h": "c",
+        "deltac_console.h": "c",
+        "deltac_lista.h": "c",
+        "deltac_util.h": "c"
     }
 }

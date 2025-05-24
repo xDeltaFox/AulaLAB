@@ -3,9 +3,12 @@
 #include <unistd.h> // Para sleep()
 #include <time.h>
 
-#include "./DeltaC/console.h"
+#include "./DeltaC/DeltaC_console.h"
+#include "./DeltaC/DeltaC_util.h"
+
 #include "./exercicios/lista01.h"
 #include "./exercicios/lab01.h"
+
 #include "./math.h"
 #include "./game_life.h"
 #include "./carry.h"
@@ -46,12 +49,10 @@ int main()
     {
     case 1:
         // Carry
-        int a = 123, b = 593;
-        printf("Numero de carry: %d\n", contar_carry(a, b));
+        dois_numeros *Carry_tery = NULL;
+        Carry_tery = DeltaC_pedir_dois_numeros();
 
-        a = 128;
-        b = 593;
-        printf("Numero de carry: %d\n", contar_carry(a, b));
+        printf("Numero de carry: %d\n", contar_carry(Carry_tery->a, Carry_tery->b));
         break;
     case 2:
         // Conway's Game of Life
@@ -77,11 +78,10 @@ int main()
         break;
     case 3:
         // MDC :)
-        printf("Digite dois numeros:");
+        dois_numeros *MDC_tery = NULL;
+        MDC_tery = DeltaC_pedir_dois_numeros();
 
-        scanf("%d %d", &a, &b);
-
-        printf("O MDC de %d e %d é %d", a, b, mdc(a, b));
+        printf("O MDC de %d e %d é %d", MDC_tery->a, MDC_tery->b, mdc(MDC_tery->a, MDC_tery->b));
 
         printf("\n\n");
         break;
