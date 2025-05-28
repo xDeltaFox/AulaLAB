@@ -41,7 +41,7 @@ int main()
     DeltaC_print("1 - (P1) Carry");
     DeltaC_print("2 - (P1) Conway's Game of Life");
     DeltaC_print("3 - MDC");
-    DeltaC_print("5 - (Lista 01) Todos os primos de um n inteiro");
+    DeltaC_print("6 - (Lista 01) Todos os primos de um n inteiro");
 
     int Eop = escolher_opcao();
 

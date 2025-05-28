@@ -13,6 +13,7 @@ void imprimirMatriz(int matriz[LINHAS][COLUNAS])
         }
         printf("\n");
     }
+    printf("\n");
 }
 
 int contarVizinhos(int matriz[LINHAS][COLUNAS], int x, int y)
@@ -23,7 +24,7 @@ int contarVizinhos(int matriz[LINHAS][COLUNAS], int x, int y)
         for (int j = -1; j <= 1; j++)
         {
             if (i == 0 && j == 0)
-                continue; // Ignora a própria célula
+                continue;
             int ni = x + i;
             int nj = y + j;
             if (ni >= 0 && ni < LINHAS && nj >= 0 && nj < COLUNAS)

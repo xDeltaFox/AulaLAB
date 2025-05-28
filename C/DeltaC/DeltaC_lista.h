@@ -1,6 +1,8 @@
 #ifndef DeltaC_lista_h_
 #define DeltaC_lista_h_
 
+#include <stdbool.h>
+
 // struct
 typedef struct lista
 {
