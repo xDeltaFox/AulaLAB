@@ -39,3 +39,22 @@ int ePalin(int n)
             return 1;
     }
 }
+
+// fatorial
+int fatorial(int n)
+{
+    if (n < 2)
+        return 1;
+
+    return n * fatorial(n - 1);
+}
+
+float porcentagem_valor(float total, float valor)
+{
+    return valor / total * 100;
+}
+
+float porcentagem_total(float total, float porcentagem)
+{
+    return porcentagem * total / 100;
+}
