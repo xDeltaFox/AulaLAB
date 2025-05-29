@@ -8,6 +8,9 @@
         "deltac_util.h": "c",
         "deltac_window_init.h": "c",
         "game_life.h": "c",
-        "lab01.h": "c"
+        "lab01.h": "c",
+        "deltac_files.h": "c",
+        "lab02.h": "c",
+        "stdlib.h": "c"
     }
 }

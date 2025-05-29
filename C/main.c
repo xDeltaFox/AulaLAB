@@ -6,6 +6,7 @@
 #include "./DeltaC/DeltaC_console.h"
 #include "./DeltaC/DeltaC_util.h"
 #include "./DeltaC/Window/DeltaC_Window_Init.h"
+#include "./DeltaC/DeltaC_files.h"
 
 #include "./exercicios/lista01.h"
 #include "./exercicios/lab01.h"
@@ -137,31 +138,68 @@ int main()
         ////////////////////////////////////////////////
         break;
     case 7:
-        int n43;
-        do
-        {
-            DeltaC_print("Escolha um numero:");
-            scanf("%d", &n43);
-            if (n43 > 0)
-                break;
-        } while (1);
+        FILE *fl = openfile("./C/build/lista.txt", "r");
+        char fmisc[51];
+        float fpreco;
+        int rl = fscanf(fl, "%s %f", fmisc, &fpreco);
 
-        TPROD **vet = (TPROD **)malloc(sizeof(TPROD *) * n43);
+        int lines = 0;
+        int ch;
+
+        while ((ch = fgetc(fl)) != EOF)
+        {
+            if (ch == '\n')
+            {
+                lines++;
+            }
+        }
+        printf("%d\n", lines);
+
+        // TPROD **vet = (TPROD **)malloc(sizeof(TPROD *) * lines);
         int i;
-        for (i = 0; i < n43; i++)
+        printf("%d\n", rl);
+        while (rl == 2)
         {
-            vet[i] = (TPROD *)malloc(sizeof(TPROD));
-            DeltaC_print("Digite uma data (ddmmaaaa) e um nome:");
-            scanf(" %50[^\n]", vet[i]->misc);
-            scanf("%f", &vet[i]->preco);
+            // vet[i] = (TPROD *)malloc(sizeof(TPROD));
+            DeltaC_print("Criando um novo produto...");
+            printf("%s %f\n", fmisc, fpreco);
+
+            i++;
+            rl = fscanf(fl, "%s %f", fmisc, &fpreco);
         }
-        ordena_a(vet, n43);
-        for (i = 0; i < n43; i++)
-        {
-            printf("%s\t%f\n", vet[i]->misc, vet[i]->preco);
-            free(vet[i]);
-        }
-        free(vet);
+        printf("%d\n", rl);
+
+        fclose(fl);
+
+        // int n43;
+        // do
+        // {
+        //     DeltaC_print("Qual vai ser o tamanho da sua lista?");
+        //     scanf("%d", &n43);
+        //     if (n43 > 0)
+        //         break;
+        // } while (1);
+
+        // int i;
+        // for (i = 0; i < n43; i++)
+        // {
+        //     TPROD **vet = (TPROD **)malloc(sizeof(TPROD *) * n43);
+        //     vet[i] = (TPROD *)malloc(sizeof(TPROD));
+        //     DeltaC_print("Criando um novo produto...");
+        //     DeltaC_print("Digite uma data (ddmmaaaa) e um nome:");
+        //     scanf(" %50[^\n]", vet[i]->misc);
+        //     DeltaC_print("Qual o pço desse produto?");
+        //     scanf("%f", &vet[i]->preco);
+        // }
+        // DeltaC_print("Ordenando...");
+        // ordena_a(vet, n43);
+        // DeltaC_print("Concluido!");
+        // for (i = 0; i < n43; i++)
+        // {
+        //     printf("%s\t%f\n", vet[i]->misc, vet[i]->preco);
+        //     free(vet[i]);
+        // }
+        // free(vet);
         break;
     case 8:
 

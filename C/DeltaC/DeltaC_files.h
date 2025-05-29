@@ -3,6 +3,6 @@
 
 #include <stdio.h>
 
-FILE openfile(char *file_name, char *mode);
+FILE *openfile(char *file_name, char *mode);
 
 #endif
