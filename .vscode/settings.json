@@ -6,6 +6,8 @@
         "deltac_console.h": "c",
         "deltac_lista.h": "c",
         "deltac_util.h": "c",
-        "deltac_window_init.h": "c"
+        "deltac_window_init.h": "c",
+        "game_life.h": "c",
+        "lab01.h": "c"
     }
 }
