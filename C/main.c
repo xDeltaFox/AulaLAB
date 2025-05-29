@@ -5,6 +5,7 @@
 
 #include "./DeltaC/DeltaC_console.h"
 #include "./DeltaC/DeltaC_util.h"
+#include "./DeltaC/Window/DeltaC_Window_Init.h"
 
 #include "./exercicios/lista01.h"
 #include "./exercicios/lab01.h"
@@ -31,119 +32,121 @@ int escolher_opcao()
 
 int main()
 {
-    // init
-    srand(time(NULL));
+    DeltaC_Window_Init();
+    
+    // // init
+    // srand(time(NULL));
 
-    // Organizar essa lista em ordem de lançamento (faltou uma palavra melhor ;-;)
-    // P1 vai depois da lista 07
-    DeltaC_print("Bem-vindo a lista de exercicios :)");
-    DeltaC_print("Escolha uma das opções a seguir:");
-    DeltaC_print("1 - (P1) Carry");
-    DeltaC_print("2 - (P1) Conway's Game of Life");
-    DeltaC_print("3 - MDC");
-    DeltaC_print("6 - (Lista 01) Todos os primos de um n inteiro");
+    // // Organizar essa lista em ordem de lançamento (faltou uma palavra melhor ;-;)
+    // // P1 vai depois da lista 07
+    // DeltaC_print("Bem-vindo a lista de exercicios :)");
+    // DeltaC_print("Escolha uma das opções a seguir:");
+    // DeltaC_print("1 - (P1) Carry");
+    // DeltaC_print("2 - (P1) Conway's Game of Life");
+    // DeltaC_print("3 - MDC");
+    // DeltaC_print("6 - (Lista 01) Todos os primos de um n inteiro");
 
-    int Eop = escolher_opcao();
+    // int Eop = escolher_opcao();
 
-    switch (Eop)
-    {
-    case 1:
-        // Carry
-        dois_numeros *Carry_tery = NULL;
-        Carry_tery = DeltaC_pedir_dois_numeros();
+    // switch (Eop)
+    // {
+    // case 1:
+    //     // Carry
+    //     dois_numeros *Carry_tery = NULL;
+    //     Carry_tery = DeltaC_pedir_dois_numeros();
 
-        printf("Numero de carry: %d\n", contar_carry(Carry_tery->a, Carry_tery->b));
-        break;
-    case 2:
-        // Conway's Game of Life
-        int atual[LINHAS][COLUNAS] = {0};
-        int nova[LINHAS][COLUNAS] = {0};
+    //     printf("Numero de carry: %d\n", contar_carry(Carry_tery->a, Carry_tery->b));
+    //     break;
+    // case 2:
+    //     // Conway's Game of Life
+    //     int atual[LINHAS][COLUNAS] = {0};
+    //     int nova[LINHAS][COLUNAS] = {0};
 
-        DeltaC_print("** Conway's Game of Life **");
-        DeltaC_print("!! A geração está configurada para ocorrer a cada 2 segundos. !!");
-        DeltaC_print("Pressione ENTER para continuar...");
-        system("read");
-        DeltaC_print("Iniciando...");
+    //     DeltaC_print("** Conway's Game of Life **");
+    //     DeltaC_print("!! A geração está configurada para ocorrer a cada 2 segundos. !!");
+    //     DeltaC_print("Pressione ENTER para continuar...");
+    //     system("read");
+    //     DeltaC_print("Iniciando...");
 
-        iniciaMatriz(atual);
+    //     iniciaMatriz(atual);
 
-        for (int geracao = 0; geracao < GERAÇÕES; geracao++)
-        {
-            printf("Geração %d:\n", geracao);
-            imprimirMatriz(atual);
-            proximaGeracao(atual, nova);
-            copiarMatriz(nova, atual);
-            sleep(2);
-        }
-        break;
-    case 3:
-        // MDC :)
-        dois_numeros *MDC_tery = NULL;
-        MDC_tery = DeltaC_pedir_dois_numeros();
+    //     for (int geracao = 0; geracao < GERAÇÕES; geracao++)
+    //     {
+    //         printf("Geração %d:\n", geracao);
+    //         imprimirMatriz(atual);
+    //         proximaGeracao(atual, nova);
+    //         copiarMatriz(nova, atual);
+    //         sleep(2);
+    //     }
+    //     break;
+    // case 3:
+    //     // MDC :)
+    //     dois_numeros *MDC_tery = NULL;
+    //     MDC_tery = DeltaC_pedir_dois_numeros();
 
-        printf("O MDC de %d e %d é %d", MDC_tery->a, MDC_tery->b, mdc(MDC_tery->a, MDC_tery->b));
+    //     printf("O MDC de %d e %d é %d", MDC_tery->a, MDC_tery->b, mdc(MDC_tery->a, MDC_tery->b));
 
-        printf("\n\n");
-        break;
-    case 4:
-        /////////////////////////////////////
-        char str[] = "abcdefg";
-        int k = 4;
+    //     printf("\n\n");
+    //     break;
+    // case 4:
+    //     /////////////////////////////////////
+    //     char str[] = "abcdefg";
+    //     int k = 4;
 
-        k_str(str, k);
-        //////////////////////////////////
-        break;
-    case 5:
-        ///////////////////////////
-        char str2[] = "amoR";
+    //     k_str(str, k);
+    //     //////////////////////////////////
+    //     break;
+    // case 5:
+    //     ///////////////////////////
+    //     char str2[] = "amoR";
 
-        ordena(str2);
+    //     ordena(str2);
 
-        printf("%s\n", str2);
-        //////////////////////////////
-        break;
-    case 6:
-        ////////////////////////////////////////
-        // todos os primos de um n inteiro
-        int n;
+    //     printf("%s\n", str2);
+    //     //////////////////////////////
+    //     break;
+    // case 6:
+    //     ////////////////////////////////////////
+    //     // todos os primos de um n inteiro
+    //     int n;
 
-        while (1)
-        {
-            printf("Digite um número (n): ");
-            scanf("%d", &n);
+    //     while (1)
+    //     {
+    //         printf("Digite um número (n): ");
+    //         scanf("%d", &n);
 
-            if (n <= 0)
-            {
-                printf("Encerrando o programa.\n");
-                break;
-            }
+    //         if (n <= 0)
+    //         {
+    //             printf("Encerrando o programa.\n");
+    //             break;
+    //         }
 
-            int contador = 0;
-            int numero = 2;
+    //         int contador = 0;
+    //         int numero = 2;
 
-            printf("Os %d primeiros números primos são:\n", n);
-            while (contador < n)
-            {
-                if (n_primos(numero))
-                {
-                    printf("%d ", numero);
-                    contador++;
-                }
-                numero++;
-            }
-            printf("\n");
-        }
-        ////////////////////////////////////////////////
-        break;
-    case 7:
+    //         printf("Os %d primeiros números primos são:\n", n);
+    //         while (contador < n)
+    //         {
+    //             if (n_primos(numero))
+    //             {
+    //                 printf("%d ", numero);
+    //                 contador++;
+    //             }
+    //             numero++;
+    //         }
+    //         printf("\n");
+    //     }
+    //     ////////////////////////////////////////////////
+    //     break;
+    // case 7:
 
-        break;
-    case 8:
+    //     break;
+    // case 8:
 
-        break;
-    default:
-        break;
-    }
+    //     break;
+    // default:
+    //     break;
+    // }
 
     return 0; // Fim da linha X
 }

@@ -10,6 +10,8 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
+                "${workspaceFolder}/C/**/**/*.c",
+                "${workspaceFolder}/C/**/**/*.h",
                 "${workspaceFolder}/C/**/*.h",
                 "${workspaceFolder}/C/**/*.c",
                 "${workspaceFolder}/C/*.h",

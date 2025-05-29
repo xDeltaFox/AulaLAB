@@ -5,6 +5,7 @@
         "lista01.h": "c",
         "deltac_console.h": "c",
         "deltac_lista.h": "c",
-        "deltac_util.h": "c"
+        "deltac_util.h": "c",
+        "deltac_window_init.h": "c"
     }
 }
