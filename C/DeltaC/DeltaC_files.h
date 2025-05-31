@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 
-FILE *openfile(char *file_name, char *mode);
+FILE *DeltaC_openfile(char *file_name, char *mode);
+int DeltaC_get_lines_file(FILE *file);
 
 #endif

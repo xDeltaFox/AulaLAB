@@ -11,7 +11,7 @@ void bl(char *dados, char *mestre)
     strcat(novo_dados, dados);
     strcpy(erros, "erros-");
     strcat(erros, dados);
-    FILE *fm = openfile(mestre, "r"), *fd = openfile(dados, "r"), *fe = openfile(erros, "w"), *ft = openfile(novo_dados, "w");
+    FILE *fm = DeltaC_openfile(mestre, "r"), *fd = DeltaC_openfile(dados, "r"), *fe = DeltaC_openfile(erros, "w"), *ft = DeltaC_openfile(novo_dados, "w");
 
     int cm, cd, rm, rd;
     char opm;
