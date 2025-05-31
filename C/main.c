@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <unistd.h> // Para sleep()
 #include <time.h>
+#include <string.h>
 
 #include "./DeltaC/DeltaC_console.h"
 #include "./DeltaC/DeltaC_util.h"
 #include "./DeltaC/Window/DeltaC_Window_Init.h"
 #include "./DeltaC/DeltaC_files.h"
+#include "./DeltaC/DeltaC_string.h"
 
 #include "./exercicios/lista01.h"
 #include "./exercicios/lab01.h"
@@ -39,7 +41,15 @@ int main()
 
     // Organizar essa lista em ordem de lançamento (faltou uma palavra melhor ;-;)
     // P1 vai depois da lista 07
-    DeltaC_print("Bem-vindo a lista de exercicios :)");
+    DeltaC_print("Bem-vindo a lista de exercicios da diciplina de Programação Estruturada :)");
+#ifdef __CYGWIN__
+    DeltaC_print("Aviso: Este programa foi feito pensado em Linux <3");
+    DeltaC_print("Aviso: Fora disso, não moverei um musculo para resolver problemas.");
+    DeltaC_print("Aviso: Principalmente, se envolver o Ruindows.");
+#endif
+    DeltaC_print("Pressione ENTER para continuar...");
+    system("read");
+
     DeltaC_print("Escolha uma das opções a seguir:");
     DeltaC_print("1 - (P1) Carry");
     DeltaC_print("2 - (P1) Conway's Game of Life");
@@ -138,68 +148,53 @@ int main()
         ////////////////////////////////////////////////
         break;
     case 7:
-        FILE *fl = openfile("./C/build/lista.txt", "r");
-        char fmisc[51];
-        float fpreco;
-        int rl = fscanf(fl, "%s %f", fmisc, &fpreco);
+        // A 'main' está diferente porque eu quis automatizar a inserção de dados através de arqivo.
+        // Tava com preguiça de digitar tudo na mão sempre que iniciar o programa.
+        FILE *fl = DeltaC_openfile("./C/recursos/lista_ordena_lab02.txt", "r");
+        int lines = DeltaC_get_lines_file(fl);
+        // As linhas são lidas e contadas corretamente mas o arquivo é totalmente lido por usar 'fgetc'.
+        // Por isso sou obrigado a fechar o arquivo e abri-lo novamente.
+        // Ou o 'fgets' não vai encontrar nenhuma linha para ser lida e só vai pular o while.
+        // Só foi possível eu descobrir isso através do debbuger do vscode.
+        fclose(fl);
+        fl = DeltaC_openfile("./C/recursos/lista_ordena_lab02.txt", "r");
 
-        int lines = 0;
-        int ch;
-
-        while ((ch = fgetc(fl)) != EOF)
+        TPROD **vet = (TPROD **)malloc(sizeof(TPROD *) * lines);
+        char line[256]; // Espero que "256" seja suficiente
+        int i = 0;
+        while (fgets(line, sizeof(line), fl)) // Lendo o arquivo linha a linha
         {
-            if (ch == '\n')
-            {
-                lines++;
-            }
-        }
-        printf("%d\n", lines);
+            // Separando a string no espaço em branco
+            int whitespace = DeltaC_get_white_space_string(line);
+            char fmisc[51] = "";
+            char ftmp[6];
 
-        // TPROD **vet = (TPROD **)malloc(sizeof(TPROD *) * lines);
-        int i;
-        printf("%d\n", rl);
-        while (rl == 2)
-        {
-            // vet[i] = (TPROD *)malloc(sizeof(TPROD));
+            // Copiando os dados para suas váriaveis
+            memcpy(fmisc, &line[0], whitespace - 1);
+            memcpy(ftmp, &line[whitespace], 6);
+
+            // Convertendo string para double que por sua vez converte para float (mesmo não tendo necessidade)
+            float fpreco = (float)strtod(ftmp, NULL);
             DeltaC_print("Criando um novo produto...");
-            printf("%s %f\n", fmisc, fpreco);
+            printf("%s %.2f\n", fmisc, fpreco);
+            vet[i] = (TPROD *)malloc(sizeof(TPROD));
+            strcpy(vet[i]->misc, fmisc);
+            memcpy(&vet[i]->preco, &fpreco, 4);
 
             i++;
-            rl = fscanf(fl, "%s %f", fmisc, &fpreco);
         }
-        printf("%d\n", rl);
 
+        DeltaC_print("Ordenando...");
+        ordena_a(vet, lines);
+        DeltaC_print("Concluido!");
+
+        for (int i = 0; i < lines; i++)
+        {
+            printf("%s\t%.2f\n", vet[i]->misc, vet[i]->preco);
+            free(vet[i]);
+        }
+        free(vet);
         fclose(fl);
-
-        // int n43;
-        // do
-        // {
-        //     DeltaC_print("Qual vai ser o tamanho da sua lista?");
-        //     scanf("%d", &n43);
-        //     if (n43 > 0)
-        //         break;
-        // } while (1);
-
-        // int i;
-        // for (i = 0; i < n43; i++)
-        // {
-        //     TPROD **vet = (TPROD **)malloc(sizeof(TPROD *) * n43);
-        //     vet[i] = (TPROD *)malloc(sizeof(TPROD));
-        //     DeltaC_print("Criando um novo produto...");
-        //     DeltaC_print("Digite uma data (ddmmaaaa) e um nome:");
-        //     scanf(" %50[^\n]", vet[i]->misc);
-        //     DeltaC_print("Qual o pço desse produto?");
-        //     scanf("%f", &vet[i]->preco);
-        // }
-        // DeltaC_print("Ordenando...");
-        // ordena_a(vet, n43);
-        // DeltaC_print("Concluido!");
-        // for (i = 0; i < n43; i++)
-        // {
-        //     printf("%s\t%f\n", vet[i]->misc, vet[i]->preco);
-        //     free(vet[i]);
-        // }
-        // free(vet);
         break;
     case 8:
 

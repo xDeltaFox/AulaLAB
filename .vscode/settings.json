@@ -11,6 +11,10 @@
         "lab01.h": "c",
         "deltac_files.h": "c",
         "lab02.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "string": "c",
+        "string_view": "c",
+        "deltac_string.h": "c",
+        "random": "c"
     }
 }
